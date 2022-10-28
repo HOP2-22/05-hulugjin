@@ -22,9 +22,9 @@ const MyButton = () => {
   const [hour, setHour] = useState(0);
   const [isStart, setIsStart] = useState(false);
   const [res, setRes] = useState(false);
+
   useEffect(() => {
     let inter;
-
     if (isStart) {
       inter = setInterval(() => {
         setSeconds(seconds + 1);
@@ -46,7 +46,7 @@ const MyButton = () => {
       setIsStart(false);
     }
     return () => clearInterval(inter);
-  }, [seconds, min, isStart]);
+  }, [seconds, min, isStart, res]);
 
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>

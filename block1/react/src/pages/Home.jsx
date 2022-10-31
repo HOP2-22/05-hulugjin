@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Image from "../images/back.jpeg";
+import Arr from "../images/arrow.png";
+import meet from "../images/meet.svg";
+import woman from "../images/women.png";
 import { Team } from "./Team";
+import Text from "../component/text";
+import calen from "../images/cal.png";
 
 const styles = {
+  body: {
+    width: "100vw",
+    height: "500vh",
+    display: "flex",
+    flexDirection: "column",
+  },
   background: {
     width: "100vw",
     height: "100vh",
@@ -127,57 +138,178 @@ const styles = {
     border: "none",
   },
 };
+const two = {
+  bod: {
+    width: "100vw",
+    height: "100vh",
+    backgroundColor: "white",
+    display: "flex",
+    alignItems: "center",
+  },
+  side: {
+    height: "100%",
+    width: "18%",
+    backgroundColor: "white",
+  },
+  teamwork: {
+    height: "55%",
+    width: "45%",
+    backgroundColor: "white",
+  },
+  inblock: {
+    width: "67%",
+    height: "100%",
+    backgroundColor: "white",
+  },
+  meeting: {
+    height: "78%",
+    width: "50%",
+    backgroundImage: `url(${meet})`,
+  },
+};
+const third = {
+  back: {
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  left: {
+    width: "27%",
+    height: "64%",
+    backgroundImage: `url(${woman})`,
+  },
+  cen: {
+    width: "25%",
+    height: "100%",
+  },
+  right: {
+    width: "25%",
+    height: "100%",
+    backgroundColor: "white",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+  },
+};
+const four = {
+  back: {
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  far: {
+    height: "100%",
+    width: "13%",
+  },
+  line: {
+    width: "17%",
+    height: "100%",
+  },
+  r: {
+    width: "35%",
+    height: "64%",
+    backgroundColor: "white",
+    backgroundImage: `url(${calen})`,
+  },
+};
 
+const fifth = {
+  body: {
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+};
 export const Home = () => {
   return (
-    <div style={styles.background}>
-      <div style={styles.navbar}>
-        <Link style={styles.team} to="Team">
-          <p>team</p>
-          <div style={styles.sqr}>
-            <div style={styles.rl}></div>
+    <div style={styles.body}>
+      <div style={styles.background}>
+        <div style={styles.navbar}>
+          <Link style={styles.team} to="Team">
+            <p>team</p>
+            <div style={styles.sqr}>
+              <div style={styles.rl}></div>
+            </div>
+          </Link>
+
+          <div style={styles.other}>
+            <Link style={styles.one} to="Products">
+              Products
+            </Link>
+
+            <Link style={styles.one} to="Services">
+              Services
+            </Link>
+
+            <Link style={styles.one} to="Contact">
+              Contact
+            </Link>
+            <Link style={styles.one} to="Login">
+              Log in
+            </Link>
           </div>
-        </Link>
 
-        <div style={styles.other}>
-          <Link style={styles.one} to="Products">
-            Products
-          </Link>
-
-          <Link style={styles.one} to="Services">
-            Services
-          </Link>
-
-          <Link style={styles.one} to="Contact">
-            Contact
-          </Link>
-          <Link style={styles.one} to="Login">
-            Log in
-          </Link>
+          <div style={styles.get}>Get Access</div>
         </div>
 
-        <div style={styles.get}>Get Access</div>
-      </div>
+        <div style={styles.center}></div>
+        <div style={styles.low}>
+          <div style={styles.ins}>
+            <div style={styles.header}>
+              Instant Collaborations for remote teams
+            </div>
 
-      <div style={styles.center}></div>
-      <div style={styles.low}>
-        <div style={styles.ins}>
-          <div style={styles.header}>
-            Instant Collaborations for remote teams
-          </div>
+            <div style={styles.lead}>
+              All in one for your remote team chats, collaboration and track
+              projects
+            </div>
 
-          <div style={styles.lead}>
-            All in one for your remote team chats, collaboration and track
-            projects
-          </div>
-
-          <div style={styles.tail}>
-            <input style={styles.mail} placeholder="Email"></input>
-            <div style={styles.earl}></div>
-            <button style={styles.last}>Get early access</button>
+            <div style={styles.tail}>
+              <input style={styles.mail} placeholder="Email"></input>
+              <div style={styles.earl}></div>
+              <button style={styles.last}>Get early access</button>
+            </div>
           </div>
         </div>
       </div>
+      <div style={two.bod}>
+        <div style={two.side}></div>
+        <div style={two.teamwork}>
+          <h1 style={{ fontSize: "50px" }}>Your Hub for teamwork</h1>
+          <Text></Text>
+        </div>
+        <div style={two.inblock}></div>
+        <div style={two.meeting}></div>
+      </div>
+
+      <div style={third.back}>
+        <div style={third.left}></div>
+        <div style={third.cen}></div>
+        <div style={third.right}>
+          <h1 style={{ fontSize: "50px" }}>Simple task management</h1>
+          <Text />
+        </div>
+      </div>
+
+      <div style={four.back}>
+        <div style={four.far}></div>
+        <div style={third.right}>
+          <h1 style={{ fontSize: "50px" }}>Scheduling that actually works</h1>
+          <Text />
+        </div>
+        <div style={four.line}></div>
+        <div style={four.r}></div>
+      </div>
+
+      <div style={fifth.body}></div>
     </div>
   );
 };

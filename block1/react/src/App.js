@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { Team } from "./pages/Team";
 import { Products } from "./pages/Products";
 import { Services } from "./pages/Services";
+//import { Layout } from "./pages/Layout";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 function App() {
@@ -18,7 +19,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/userId" element={<UserId />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />z
       </Routes>
     </BrowserRouter>
   );

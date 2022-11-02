@@ -7,11 +7,17 @@ import woman from "../images/women.png";
 import { Team } from "./Team";
 import Text from "../component/text";
 import calen from "../images/cal.png";
-
+import Card from "../component/Card";
+import Amy from "../images/Ellipse.svg";
+import Jane from "../images/Jane.svg";
+import Pena from "../images/Pena.svg";
+import Ins from "../images/ins.png";
+import tweet from "../images/Twit.png";
+import face from "../images/face.png";
 const styles = {
   body: {
     width: "100vw",
-    height: "500vh",
+    height: "540vh",
     display: "flex",
     flexDirection: "column",
   },
@@ -176,8 +182,8 @@ const third = {
     alignItems: "center",
   },
   left: {
-    width: "27%",
-    height: "64%",
+    width: "23%",
+    height: "56%",
     backgroundImage: `url(${woman})`,
   },
   cen: {
@@ -211,8 +217,8 @@ const four = {
     height: "100%",
   },
   r: {
-    width: "35%",
-    height: "64%",
+    width: "27%",
+    height: "54%",
     backgroundColor: "white",
     backgroundImage: `url(${calen})`,
   },
@@ -223,18 +229,150 @@ const fifth = {
     width: "100vw",
     height: "100vh",
     display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+    backgroundColor: "whitesmoke",
+  },
+  lever: {
+    width: "100%",
+    height: "14%",
+  },
+  container: {
+    width: "80%",
+    height: "30%",
+    backgroundColor: "grey",
+  },
+};
+const struct = {
+  body: {
+    width: "100vw",
+    height: "40vh",
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  ins: {
+    width: "84%",
+    height: "78%",
+    backgroundColor: "red",
+    display: "flex",
     flexDirection: "row",
+  },
+  team: {
+    width: "10%",
+    height: "100%",
+
+    display: "flex",
+    flexDirection: "column",
+  },
+  cont: {
+    width: "100%",
+    height: "20%",
+
+    fontWeight: "bold",
+    color: "white",
+    fontSize: "30px",
+    display: "flex",
+
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  space: {
+    width: "100%",
+    height: "10%",
+  },
+  main: {
+    width: "100%",
+    height: "70%",
+
+    display: "flex",
+    flexDirection: "column",
+  },
+  in: {
+    width: "13%",
+    height: "58%",
+    backgroundImage: `url(${Ins})`,
+    marginRight: "4%",
+  },
+  inst: {
+    height: "12%",
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+  },
+  face: {
+    height: "12%",
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+  },
+  fa: {
+    width: "13%",
+    height: "58%",
+    backgroundImage: `url(${face})`,
+    marginRight: "4%",
+  },
+  T: {
+    width: "9%",
+    height: "49%",
+    backgroundImage: `url(${tweet})`,
+    marginRight: "4%",
+  },
+  Twit: {
+    height: "12%",
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+  },
+  sa: {
+    height: "100%",
+    width: "15%",
+  },
+  text: {
+    height: "100%",
+    width: "40%",
+
+    display: "flex",
+    flexDirection: "row",
+  },
+  case: {
+    height: "100%",
+    width: "33%",
+
+    display: "flex",
+    flexDirection: "column",
+  },
+  title: {
+    width: "100%",
+    height: "10%",
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  s: {
+    width: "100%",
+    height: "10%",
+    backgroundColor: "red",
+  },
+  res: {
+    width: "100%",
+    height: "10%",
+
+    display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
 };
+
 export const Home = () => {
   return (
     <div style={styles.body}>
       <div style={styles.background}>
         <div style={styles.navbar}>
           <Link style={styles.team} to="Team">
-            <p>team</p>
+            team
             <div style={styles.sqr}>
               <div style={styles.rl}></div>
             </div>
@@ -309,9 +447,125 @@ export const Home = () => {
         <div style={four.r}></div>
       </div>
 
-      <div style={fifth.body}></div>
+      <div style={fifth.body}>
+        <h1 style={{ fontSize: "40px" }}>What people say about us</h1>
+        <div style={fifth.lever}></div>
+        <div style={{ display: "flex", flexDirection: "row", gap: "2%" }}>
+          {cardData.map((data, index) => {
+            return (
+              <div key={index}>
+                <Card
+                  starNumber={data.star}
+                  comment={data.comment}
+                  avatar={data.avatar}
+                  name={data.name}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div style={struct.body}>
+        <div style={struct.ins}>
+          <div style={struct.team}>
+            <div style={struct.cont}>
+              team
+              <div style={styles.sqr}>
+                <div style={styles.rl}></div>
+              </div>
+            </div>
+            <div style={struct.space}></div>
+            <div style={struct.main}>
+              <div style={struct.inst}>
+                <div style={struct.in}></div>
+                <p> Instagram </p>
+              </div>
+              <div style={struct.face}>
+                <div style={struct.fa}></div>
+                <p> Facebook </p>
+              </div>
+
+              <div style={struct.Twit}>
+                <div style={struct.T}></div>
+                <p>Twitter </p>
+              </div>
+              <div style={struct.inst}>
+                <div style={struct.in}></div>
+                <p> Instagram </p>
+              </div>
+              <div style={struct.face}>
+                <div style={struct.fa}></div>
+                <p> Facebook </p>
+              </div>
+
+              <div style={struct.Twit}>
+                <div style={struct.T}></div>
+                <p>Twitter </p>
+              </div>
+            </div>
+          </div>
+          <div style={struct.sa}></div>
+          <div style={struct.text}>
+            <div style={struct.case}>
+              <div style={struct.title}>Use Cases</div>
+              <div style={struct.s}></div>
+              <div style={struct.res}>UI Design</div>
+              <div style={struct.res}>UX Design</div>
+              <div style={struct.res}>Prototyping</div>
+              <div style={struct.res}>UI Design</div>
+              <div style={struct.res}>UX Design</div>
+              <div style={struct.res}>Prototyping</div>
+            </div>
+            <div style={struct.case}>
+              <div style={struct.title}>Explore</div>
+              <div style={struct.s}></div>
+              <div style={struct.res}>Figma</div>
+              <div style={struct.res}>Customers</div>
+              <div style={struct.res}>Why I love Figma</div>
+              <div style={struct.res}>Figma</div>
+              <div style={struct.res}>Customers</div>
+              <div style={struct.res}>Why I love Figma</div>
+            </div>
+            <div style={struct.case}>
+              <div style={struct.title}>Resources</div>
+              <div style={struct.s}></div>
+              <div style={struct.res}>Community Resources Hub</div>
+              <div style={struct.res}>Support</div>
+              <div style={struct.res}>Education</div>
+              <div style={struct.res}>Community Resources Hub</div>
+              <div style={struct.res}>Support</div>
+              <div style={struct.res}>Education</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
+
+const cardData = [
+  {
+    star: 5,
+    comment:
+      "Give everyone you work with—inside and outside your emoji, keep conversations focused in channels, and simplify all your communication into one place.",
+    avatar: Amy,
+    name: "Amy Klassen",
+  },
+  {
+    star: 5,
+    comment:
+      "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+    avatar: Jane,
+    name: "Jane Cooper",
+  },
+  {
+    star: 5,
+    comment:
+      "Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. ",
+    avatar: Pena,
+    name: "Eleanor Pena",
+  },
+];
 
 export default Home;

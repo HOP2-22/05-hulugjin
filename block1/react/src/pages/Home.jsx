@@ -255,7 +255,7 @@ const struct = {
   ins: {
     width: "84%",
     height: "78%",
-    backgroundColor: "red",
+    backgroundColor: "#252B3B",
     display: "flex",
     flexDirection: "row",
   },
@@ -354,7 +354,6 @@ const struct = {
   s: {
     width: "100%",
     height: "10%",
-    backgroundColor: "red",
   },
   res: {
     width: "100%",
@@ -363,6 +362,40 @@ const struct = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+  },
+  e: {
+    width: "30%",
+    height: "100%",
+  },
+  email: {
+    width: "70%",
+    height: "30%",
+  },
+  first: {
+    width: "100%",
+    height: "50%",
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  sec: {
+    width: "100%",
+    height: "50%",
+  },
+  design: {
+    width: "100%",
+    height: "100%",
+  },
+  lol: {
+    width: "30%",
+    height: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
+    marginTop: "4%",
+    marginLeft: "24%",
   },
 };
 
@@ -536,6 +569,16 @@ export const Home = () => {
               <div style={struct.res}>Community Resources Hub</div>
               <div style={struct.res}>Support</div>
               <div style={struct.res}>Education</div>
+            </div>
+          </div>
+          <div style={struct.e}>
+            <div style={struct.email}>
+              <div style={struct.first}>Subscribe to our newsletter</div>
+              <div style={struct.second}>
+                <div style={struct.design}>
+                  <div style={struct.lol}>Email</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

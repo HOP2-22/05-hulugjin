@@ -5,26 +5,52 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Link from "react";
 import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 import { sizing } from "@mui/system";
 function Header() {
   return (
-    <AppBar>
-      <Container maxWidth="xl">
+    <AppBar sx={{ backgroundColor: "white", boxShadow: 0 }}>
+      <Container maxWidth="xl" sx={{ backgroundColor: "white" }}>
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            fontStyle: "Mulish",
           }}
         >
-          <Typography>team.</Typography>
-          <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
-            <Typography>Products</Typography>
-            <Typography>Services</Typography>
-            <Typography>Contact</Typography>
-            <Typography>Log In</Typography>
-            <Button variant="outlined" sx={{ border: "1px solid white" }}>
-              <Typography color="white">Get Access </Typography>
+          <Typography fontSize={"27px"} color="black">
+            team.
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              gap: 3,
+              alignItems: "center",
+              color: "#6D7D8B",
+            }}
+          >
+            <Typography>
+              <u>Products</u>
+            </Typography>
+            <Typography>
+              {" "}
+              <u>Services</u>
+            </Typography>
+            <Typography>
+              {" "}
+              <u>Contact</u>
+            </Typography>
+            <Typography>
+              {" "}
+              <u>Log In</u>
+            </Typography>
+            <Button
+              variant="outlined"
+              color="primary"
+              sx={{ border: "2px solid #4DA0FD" }}
+            >
+              <Typography>Get Access </Typography>
             </Button>
           </Box>
         </Box>

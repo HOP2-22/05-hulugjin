@@ -11,6 +11,7 @@ import woman from "/Users/22-hop2-/new/block1/mui/src/images/Wade.png";
 import bes from "/Users/22-hop2-/new/block1/mui/src/images/Bessie.png";
 import hen from "/Users/22-hop2-/new/block1/mui/src/images/Henry.png";
 import Les from "/Users/22-hop2-/new/block1/mui/src/images/Les.png";
+import Tail from "/Users/22-hop2-/new/block1/mui/src/components/Tail";
 export default function MyApp() {
   return (
     <div>
@@ -43,29 +44,11 @@ export default function MyApp() {
           })}
         </Grid>
       </Container>
+      <Tail />
     </div>
   );
 }
-/*
-const data = [
-  {
-    name: "Wade Warren",
-    image: woman,
-  },
-  {
-    name: "Bessie Cooper",
-    image: bes,
-  },
-  {
-    name: "Courtney Henry",
-    image: hen,
-  },
-  {
-    name: "Leslie Alexander",
-    image: Les,
-  },
-];
-*/
+
 const data = [
   {
     CardContentHeader: "The Emotional Toll of Being in UX",
@@ -151,4 +134,24 @@ const data = [
           <Grid item xs={12} md={6} lg={3}>
             <Card />
           </Grid>
+*/
+/*
+const data = [
+  {
+    name: "Wade Warren",
+    image: woman,
+  },
+  {
+    name: "Bessie Cooper",
+    image: bes,
+  },
+  {
+    name: "Courtney Henry",
+    image: hen,
+  },
+  {
+    name: "Leslie Alexander",
+    image: Les,
+  },
+];
 */

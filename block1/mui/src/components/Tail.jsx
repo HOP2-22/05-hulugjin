@@ -9,6 +9,14 @@ import Grid from "@mui/material/Grid";
 import { sizing } from "@mui/system";
 
 function Tail() {
-  return <Container>Hello</Container>;
+  return (
+    <Container maxWidth={false} sx={{ backgroundColor: "#252B3B" }}>
+      <Grid>Hello</Grid>
+      <Grid>Hello</Grid>
+      <Grid>Hello</Grid>
+      <Grid>Hello</Grid>
+      <Grid>Hello</Grid>
+    </Container>
+  );
 }
 export default Tail;

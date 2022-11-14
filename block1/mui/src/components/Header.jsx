@@ -1,16 +1,23 @@
-import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Link from "react";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import { sizing } from "@mui/system";
-function Header() {
+import Switch from "@mui/material/Switch";
+import { ColorModeContext } from "../context/ThemeContext";
+import React, { useContext } from "react";
+
+function Header({ child }) {
+  const { theme, changeTheme, isDark } = useContext(ColorModeContext);
+
   return (
-    <AppBar sx={{ backgroundColor: "white", boxShadow: 0 }}>
-      <Container maxWidth="xl" sx={{ backgroundColor: "white" }}>
+    <AppBar
+      sx={{
+        backgroundColor: theme.backgroundColor,
+        boxShadow: 0,
+      }}
+    >
+      <Container maxWidth="xl" sx={{ backgroundColor: theme.backgroundColor }}>
         <Box
           sx={{
             display: "flex",
@@ -19,7 +26,7 @@ function Header() {
             fontStyle: "Mulish",
           }}
         >
-          <Typography fontSize={"27px"} color="black">
+          <Typography fontSize={"27px"} color={theme.color}>
             team.
           </Typography>
           <Box
@@ -30,6 +37,8 @@ function Header() {
               color: "#6D7D8B",
             }}
           >
+            <Switch checked={isDark} onChange={() => changeTheme()} />
+            {/* <Switch checked={isDark} onChange={() => isTheme()} /> */}
             <Typography>
               <u>Products</u>
             </Typography>

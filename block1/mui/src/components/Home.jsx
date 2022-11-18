@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import axios from "axios";
 import { ColorModeContext } from "../context/ThemeContext";
 import Header from "../components/Header";
+import Tail from "./Tail";
 export const Home = () => {
   const [posts, setPost] = React.useState();
   const instance = axios.create({
@@ -43,12 +44,14 @@ export const Home = () => {
           {posts?.map((data, ind) => {
             return (
               <Grid item xs={12} md={6} lg={3} key={ind}>
-                <BlogCard num={ind} post={data} />
+                <BlogCard num={ind} post={data} id={data.id} />
               </Grid>
             );
           })}
         </Grid>
       </Container>
+      <Box sx={{ marginBottom: "90px" }}></Box>
+      <Tail />
     </div>
   );
 };

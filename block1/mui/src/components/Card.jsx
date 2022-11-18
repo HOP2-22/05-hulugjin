@@ -8,16 +8,14 @@ import Box from "@mui/material/Box";
 import { useNavigate } from "react-router-dom";
 import { BlogPost } from "./BlogPost";
 export const BlogCard = (props) => {
-  const { post } = props;
+  const { post, id } = props;
   const navigate = useNavigate();
 
   return (
     <Card
       sx={{ maxWidth: 345 }}
       onClick={() => {
-        navigate(`/posts/${post.id}`, {
-          data: post,
-        });
+        navigate(`/posts/${id}`);
       }}
     >
       <CardActionArea>

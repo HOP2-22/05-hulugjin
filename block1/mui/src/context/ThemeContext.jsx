@@ -10,6 +10,7 @@ const light = {
   backgroundColor: "white",
   color: "black",
 };
+
 function ThemeContext({ children }) {
   const [isDark, setIsDark] = useState(false);
   const theme = useMemo(() => {

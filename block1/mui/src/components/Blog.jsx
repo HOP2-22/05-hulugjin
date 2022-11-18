@@ -116,7 +116,7 @@ export const Blog = (props) => {
         </Grid>
       </Container>
 
-      <Box sx={{ marginBottom: "190px" }}></Box>
+      <Box sx={{ marginBottom: "140px" }}></Box>
 
       <Tail />
     </div>

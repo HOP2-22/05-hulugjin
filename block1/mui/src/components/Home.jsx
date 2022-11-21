@@ -13,7 +13,7 @@ export const Home = () => {
     baseURL: "https://dummyapi.io/data/v1/post",
     headers: { "app-id": "636e0d6642c1f665f684f489" },
   });
-  const { theme, changeTheme, isDark } = useContext(ColorModeContext);
+  const { theme } = useContext(ColorModeContext);
   React.useEffect(() => {
     const fetchPosts = async () => {
       try {

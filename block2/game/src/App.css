@@ -1,9 +1,10 @@
 body {
   background-color: #b40000;
+  padding: 0;
 }
 .App {
   text-align: center;
-  display: "flex";
+  display: flex;
 }
 
 /* .App-logo {

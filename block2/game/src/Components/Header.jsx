@@ -21,18 +21,20 @@ function Header({ active }) {
 
   useEffect(() => {
     let inter = null;
-    inter = setInterval(() => {
-      const translation = () => {
-        let random = Math.floor(Math.random() * 15);
-        col[random] = true;
-        setTimeout(() => {
-          col[random] = false;
-        }, 1000);
-      };
-      if (click) translation();
-    }, [200]);
+    if (start) {
+      inter = setInterval(() => {
+        const translation = () => {
+          let random = Math.floor(Math.random() * 15);
+          col[random] = true;
+          setTimeout(() => {
+            col[random] = false;
+          }, 2000);
+        };
+        if (click) translation();
+      }, [200]);
+    }
     return () => clearInterval(inter);
-  }, [click, col]);
+  }, [click, col, start]);
 
   useEffect(() => {
     if (start) {
@@ -102,6 +104,7 @@ function Header({ active }) {
                 src={upperback}
                 style={{ width: "128px", height: "128px", zIndex: "1" }}
                 alt=""
+                draggable="false"
               />
               {start ? (
                 <img
@@ -116,6 +119,7 @@ function Header({ active }) {
                     transition: "all 1s",
                     pointerEvents: isDisabled ? "none" : "auto",
                   }}
+                  draggable="false"
                   onClick={() => {
                     setScore((e) => e + 1);
                     setIsDisabled(true);
@@ -138,6 +142,7 @@ function Header({ active }) {
                     transition: "all 1s",
                   }}
                   alt=""
+                  draggable="false"
                 />
               )}
 
@@ -150,6 +155,7 @@ function Header({ active }) {
                   marginTop: " -115px",
                 }}
                 alt=""
+                draggable="false"
               />
             </div>
           );

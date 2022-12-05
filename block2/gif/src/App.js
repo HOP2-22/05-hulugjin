@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import Box from "@mui/material/Box";
@@ -13,6 +13,7 @@ function App() {
   const [giphy, setGiphy] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
   const instance = axios.create({
     baseURL: `https://api.giphy.com/v1/gifs/search?api_key=YFPWPBeNZj6LPZu80VQG9b1lHafYd6Im&q=${inputValue}&limit=25&offset=0&rating=g&lang=en`,
   });
@@ -28,6 +29,35 @@ function App() {
       setError(error.message);
     }
   };
+
+  useEffect(() => {
+    // REQUEST
+    const request = instance.interceptors.request.use(
+      function (config) {
+        console.log("request");
+        return config;
+      },
+      function (error) {
+        console.log(error + "ohno");
+        return Promise.reject(error);
+      }
+    );
+
+    // RESPONSE
+    const response = instance.interceptors.response.use(
+      function (response) {
+        console.log("response");
+        return response;
+      },
+      function (error) {
+        console.log("response error");
+        return Promise.reject(error);
+      }
+    );
+    const interceptor = instance.interceptors.response.use(request, response);
+    return () => instance.interceptors.response.eject(interceptor);
+  }, [giphy, instance.interceptors.request, instance.interceptors.response]);
+
   if (error !== "") {
     return (
       <h1>
@@ -77,7 +107,7 @@ function App() {
       </div>
 
       <Box sx={{ marginBottom: "50px" }}></Box>
-      <container
+      <Container
         maxWidth="sm"
         style={{
           display: "flex",
@@ -94,7 +124,7 @@ function App() {
             />
           ))}
         </Grid>
-      </container>
+      </Container>
     </div>
   );
 }

@@ -31,7 +31,7 @@ function Header({ active }) {
           }, 2000);
         };
         if (click) translation();
-      }, [200]);
+      }, [500]);
     }
     return () => clearInterval(inter);
   }, [click, col, start]);

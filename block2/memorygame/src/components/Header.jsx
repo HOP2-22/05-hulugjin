@@ -1,81 +1,178 @@
-import React, { useEffect, useState } from "react";
-import data from "../data/data";
-const styles = {
-  body: {
-    width: "100vw",
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  style: {
-    width: "80%",
-    height: "80%",
-    backgroundColor: "red",
-    color: "blue",
-  },
-};
+import React, { Component, useEffect, useState } from "react";
+import { data } from "./Data";
+import Container from "@mui/material/Container";
+import { Button } from "@mui/material";
+import Purple from "./Purple.css";
 
-const reverse = {
-  back: {
-    width: "300px",
-    height: "300px",
-    backgroundColor: "aqua",
-  },
-};
+const Card = ({
+  dataa,
+  index,
+  setCount,
+  count,
+  setImages,
+  image,
+  ID,
+  setID,
+  setTouch,
+  touch,
+}) => {
+  const FlipCard = () => {
+    setCount(count + 1);
+    let newArr = image;
+    newArr[index].pick = !newArr[index].pick;
+    setImages([...newArr]);
+  };
+  const flipBack = () => {
+    setImages(
+      image.map((el) => {
+        if (el) {
+          el.pick = false;
+          return el;
+        } else {
+          return null;
+        }
+      })
+    );
+  };
 
-const Card = ({ dataa }) => {
-  const [rotate, setRotate] = useState(false);
+  const CheckId = (id) => {
+    if (!ID) {
+      setID(id);
+      return;
+    }
+    if (id == ID) {
+      setTimeout(() => {
+        setImages(
+          image.map((image) =>
+            image ? (image.id == id ? null : { ...image, pick: false }) : null
+          )
+        );
+        setID(null);
+        // flipBack();
+      }, 1000);
+    } else {
+      setTimeout(() => {
+        flipBack();
+      }, 400);
+      setID(null);
+    }
+  };
+  if (dataa == null) {
+    return (
+      <div
+        style={{
+          width: "200px",
+          height: "200px",
+        }}
+      />
+    );
+  }
 
   return (
     <div
+      onClick={() => {
+        FlipCard();
+        CheckId(dataa.id);
+        setTouch(true);
+      }}
       style={{
-        transform: `${
-          rotate === true ? "rotateY(180deg)" : "rotateY(45deg) rotateY(-45deg)"
-        }`,
-        transition: "1s",
-        backgroundColor: `${rotate ? "red" : "green"}`,
-        zIndex: `${rotate ? 1 : 0}`,
+        width: "200px",
+        height: "200px",
+        position: "relative",
+        transform: `rotateY(${dataa.pick ? "180deg" : "0deg"})`,
+        transformStyle: "preserve-3d",
+        transition: "transform 0.6s",
       }}
     >
+      <div
+        style={{
+          position: "absolute",
+          background: "red",
+          width: "100%",
+          height: "100%",
+          backfaceVisibility: "hidden",
+          pointerEvents: `${touch ? "none " : "auto"}`,
+        }}
+      ></div>
       <img
         src={dataa.image}
-        alt="img"
-        width="300px"
-        position="absolute"
-        height="300px"
-        zIndex={rotate ? -1 : 1}
-        onClick={() => {
-          rotate === true ? setRotate(false) : setRotate(true);
-          setTimeout(() => {}, 1000);
+        style={{
+          width: "100%",
+          height: "100%",
+          backfaceVisibility: "hidden",
+          transform: "rotateY(180deg)",
+          pointerEvents: `${touch ? "none " : "auto"}`,
         }}
-      ></img>
+      />
     </div>
   );
 };
 
-export default function Header() {
-  const [images, setImages] = useState(
-    data.sort(function () {
-      return Math.random() - 0.5;
-    })
-  );
+function Game() {
+  const [ID, setID] = useState(null);
+  const [count, setCount] = useState(0);
+  const [images, setImages] = useState([]);
+  const [touch, setTouch] = useState(false);
+  const generate = () => {
+    setImages(
+      data.sort(function () {
+        return Math.random() - 0.5;
+      })
+    );
+  };
+  console.log(images);
+  useEffect(() => {
+    generate();
+  }, []);
   return (
-    <div style={styles.body}>
-      <div
-        style={{
-          display: "grid",
-          justifyContent: "center",
-          gridTemplateColumns: "Repeat(5,minmax(0 , 1fr))",
-          gap: "10px",
+    <body
+      style={{
+        width: "100vw",
+        height: "100vh",
+        padding: "0",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Container
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "50px",
+          alignItems: "center",
         }}
       >
-        {images.map((dataa, index) => {
-          return <Card key={index} dataa={dataa} />;
-        })}
-      </div>
-    </div>
+        <div
+          className=""
+          style={{
+            display: "grid",
+            justifyContent: "center",
+            gridTemplateColumns: "Repeat(4 ,minmax(0 , 1fr))",
+            gap: "10px",
+            flexDirection: "column",
+          }}
+        >
+          {images?.map((dataa, index) => {
+            return (
+              <Card
+                dataa={dataa}
+                index={index}
+                setCount={setCount}
+                count={count}
+                setImages={setImages}
+                image={images}
+                setID={setID}
+                ID={ID}
+                key={index}
+                setTouch={setTouch}
+                touch={touch}
+              />
+            );
+          })}
+        </div>
+      </Container>
+    </body>
   );
 }
-// pointerEvents: isDisabled ? "none" : "auto",
-// height={rotate === true ? "400px" : "100px"}
+export default Game;

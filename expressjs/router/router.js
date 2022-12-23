@@ -1,17 +1,22 @@
 const express = require("express");
 
-const Router = express.Router();
+const router = express.Router();
 const {
   getList,
-  addData,
-  uptadeData,
-  //   patchItem,
+  getUserById,
+  getPosts,
+  getUptade,
+  getDelete,
 } = require("../controller/controller.js");
 
-Router.get("/get", getList);
-Router.post("/add", addData);
-Router.patch("/patch", uptadeData);
-//   .delete("/delete", deleteItem)
-//   .patch("/patch", patchItem);
+const { getPostList } = require("../controller/postController.js");
 
-module.exports = Router;
+router.get("/user", getList);
+router.get("/user/:id", getUserById);
+router.post("/post", getPosts);
+router.patch("/uptade/:id", getUptade);
+router.delete("/delete/:id", getDelete);
+
+router.get("/post", getPostList);
+
+module.exports = router;

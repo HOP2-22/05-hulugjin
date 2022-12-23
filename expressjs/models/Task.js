@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
-const TaskSchema = new Schema({
-  detail: { type: String },
-  desc: { type: Array },
-  isDone: { type: Boolean },
+const UserSchema = new Schema({
+  name: { type: String },
+  age: { type: Number },
 });
-const Task = mongoose.model("lists", TaskSchema);
-module.exports = Task;
+const User = mongoose.model("Lists", UserSchema);
+module.exports = User;
